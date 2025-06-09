@@ -32,7 +32,8 @@ On your **mod repo page**:
 - Click the `< > Code` tab to return to the main repo page
 - Click `🔌 X Branches`, above the file view
 - Click `🗑️ (Delete Branch)` on `readme` and all other undesired branches
-- Click the green `< > Code` button and clone the repo locally using `git` or `gh` as indicated
+- Click the `< > Code` tab to return to the main repo page
+- Click the green `< > Code` button left of the about section and clone the repo locally using `git` or `gh` as indicated
 - Open the cloned folder in your preferred IDE, e.g. [IntelliJ IDEA CE](https://www.jetbrains.com/idea/download#community-edition)
 
 ### Correct the metadata
