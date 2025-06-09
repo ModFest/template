@@ -66,6 +66,7 @@ In your IDE:
 *draw the rest of the owl*
 
 Why not try [Introduction to Fabric and Modding](https://docs.fabricmc.net/develop/getting-started/introduction-to-fabric-and-modding)? Note that, for this template:
+- Changing the mod description must be done using `README.md`, NOT the modrinth description (it will be overwritten)
 - Metadata usually in `fabric.mod.json` has been migrated to `gradle.properties` for easy editing
 - Dependency versions usually in `build.gradle` are in `libs.versions.toml` for programmatic use 
   - You can define further any dependencies in `build.gradle` for simplicity if desired 
