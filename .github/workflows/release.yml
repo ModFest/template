@@ -46,9 +46,10 @@ jobs:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Modrinth Publish
-        run: |
-          ./gradlew modrinth
-          ./gradlew modrinthSyncBody
         env:
           MODRINTH_TOKEN: ${{ secrets.MODRINTH_TOKEN }}
           CHANGELOG: ${{ github.event.release.body }}
+        if: ${{ env.MODRINTH_TOKEN != '' }}
+        run: |
+          ./gradlew modrinth
+          ./gradlew modrinthSyncBody
