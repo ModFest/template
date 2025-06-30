@@ -1,6 +1,6 @@
 # ModFest Mod Templates!
 
-Mod templates tailored towards use at [ModFest](https://modfest.net/) events.
+Mod templates tailored towards use at [ModFest](https://modfest.net/) events. Uses local copying to not pollute your commit log (or repo header).
 
 ## To Use:
 
@@ -14,31 +14,32 @@ On [Modrinth](https://modrinth.com/):
 
 If the mod name is taken, come up with a new name!
 
-### Copy the template
+### Set up your mod repo
 
-On the [template repo page](https://github.com/ModFest/template):
-- Click `Use this template`->`Create a new repository`
-- Check `Include all branches`
+On this template page:
+- Click `🔌 X Branches` and select your desired platform
+- Click the green `< > Code` button and select `Download as Zip`
+
+Anywhere on github:
+- On the top bar, click `+ (Create new...)` -> `New Repository`
 - Type your **mod slug** under "repository name"
   - This should match your modrinth URL
+- Check "add license" and pick one (we recommend [EUPL-1.2](https://choosealicense.com/licenses/eupl-1.2/))
 - Click `Create repository`
+
+On your new **mod repo page**:
 - Click `About ⚙️` and enter a short mod summary
-
-### Clean and clone the repo
-
-On your **mod repo page**:
-- Click `⚙️ Settings`->`Default branch`->`⇄ (Switch to another branch)`
-- Select your desired target version, and click `Update`->`I understand`
-- Click the `< > Code` tab to return to the main repo page
-- Click `🔌 X Branches`, above the file view
-- Click `🗑️ (Delete Branch)` on `readme` and all other undesired branches
+- Click `🔌 X Branches`, above the file view and click `View all branches`
+- On `main`, click `...`->`✏️ Rename branch` and enter the branch name you downloaded
 - Click the `< > Code` tab to return to the main repo page
 - Click the green `< > Code` button left of the about section and clone the repo locally using `git` or `gh` as indicated
+- Copy the contents of the previously downloaded zip (excluding LICENSE) into your cloned folder.
 - Open the cloned folder in your preferred IDE, e.g. [IntelliJ IDEA CE](https://www.jetbrains.com/idea/download#community-edition)
 
 ### Correct the metadata
 
 In your IDE:
+- Commit the template (Ctrl+K in IntelliJ), adding all files, with the message `modfest template`
 - Open `gradle.properties` and replace the following:
   - `username`(x2) with your github username (as it appears in your repo URL)
   - `slug` to your mod slug (as it appears in github and modrinth URLs)
@@ -59,7 +60,7 @@ In your IDE:
 - In (renamed) `ModId.java`, correct `"mod_id"` and `[Mod ID]` to your ID and mod name.
   - Optionally, uncomment the logger line and change the hello message to something unique
 - Run `./gradlew runClient` to validate the mod still launches
-- Commit and push these changes (Ctrl+K in IntelliJ)
+- Commit and push these changes (Ctrl+K in IntelliJ) with the message `initial commit` - check "amend" if you prefer one initial commit.
 
 ### Develop your mod
 
