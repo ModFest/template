@@ -24,7 +24,7 @@ Anywhere on github:
 - On the top bar, click `+ (Create new...)` -> `New Repository`
 - Type your **mod slug** under "repository name"
   - This should match your modrinth URL
-- Check "add license" and pick one (we recommend [EUPL-1.2](https://choosealicense.com/licenses/eupl-1.2/))
+- Check "add license" and pick one (we recommend [EUPL-1.2](https://choosealicense.com/licenses/eupl-1.2) - click `MIT` and copy it in later)
 - Click `Create repository`
 
 On your new **mod repo page**:
@@ -40,6 +40,7 @@ On your new **mod repo page**:
 
 In your IDE:
 - Commit the template (Ctrl+K in IntelliJ), adding all files, with the message `modfest template`
+- Copy any preferred license content into `LICENSE` (e.g. [EUPL-1.2](https://choosealicense.com/licenses/eupl-1.2))
 - Open `gradle.properties` and replace the following:
   - `username`(x2) with your github username (as it appears in your repo URL)
   - `slug` to your mod slug (as it appears in github and modrinth URLs)
