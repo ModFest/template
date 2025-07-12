@@ -49,13 +49,13 @@ In your IDE:
   - `authors` to your handle/name, along with any other authors (comma-space-separated - `me, you, another`)
   - `contributors` to anyone who helped you (comma-space-separated - `me, you, another`), or just blank (`contributors=`)
 - Rename the following using your IDE rename tools (Shift+F6 in IntelliJ):
-  - `src/main/java/io/github/username/mod_id/ModId.java` from `ModId` to your mod ID (in PascalCase)
+  - `src/main/java/io/github/username/modid/ModId.java` from `ModId` to your mod ID (in PascalCase)
   - replace **mod_id** with your mod ID (in snake_case) in:
-    - `src/main/java/io/github/username/mod_id`
     - `src/main/resources/mod_id.mixins.json`
     - `src/main/resources/assets/mod_id`
-  - replace **username** with your github username (in snake_case) in:
-    - `src/main/java/io/github/username`
+  - replace `username` and `modid` with your github username and mod ID (in flatcase) in:
+    - `src/main/java/io/github/username/modid`
+    - alternatively, if you own a domain e.g. `hostname.tld` you can use `src/main/java/tld/hostname/modid`
 - In (renamed) `mod_id.mixins.json`, correct `username.mod_id` to match the new file path
 - In `fabric.mod.json`, correct `username.mod_id.ModId` to match the new file path/name
 - In (renamed) `ModId.java`, correct `"mod_id"` and `[Mod ID]` to your ID and mod name.
