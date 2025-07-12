@@ -1,4 +1,4 @@
-package io.github.username.mod_id;
+package io.github.username.modid;
 
 import net.fabricmc.api.ModInitializer;
 import org.slf4j.Logger;
