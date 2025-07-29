@@ -68,7 +68,7 @@ jobs:
         env:
           MODRINTH_TOKEN: ${{ secrets.MODRINTH_TOKEN }}
           CHANGELOG: ${{ github.event.release.body }}
-        if: github.event_name == 'release' && github.event.action == 'published' && ${{ env.MODRINTH_TOKEN != '' }}
+        if: ${{ github.event_name == 'release' && github.event.action == 'published' && env.MODRINTH_TOKEN != '' }}
         run: |
-          ./gradlew modrinth
-          ./gradlew modrinthSyncBody
+          ./gradlew --no-configuration-cache modrinth
+          ./gradlew --no-configuration-cache modrinthSyncBody
