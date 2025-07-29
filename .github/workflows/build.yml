@@ -63,3 +63,12 @@ jobs:
         with:
           files: 'build/libs/*.jar;!build/libs/*-sources.jar'
           repo-token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Modrinth Publish
+        env:
+          MODRINTH_TOKEN: ${{ secrets.MODRINTH_TOKEN }}
+          CHANGELOG: ${{ github.event.release.body }}
+        if: github.event_name == 'release' && github.event.action == 'published' && ${{ env.MODRINTH_TOKEN != '' }}
+        run: |
+          ./gradlew modrinth
+          ./gradlew modrinthSyncBody
