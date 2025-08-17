@@ -42,25 +42,23 @@ In your IDE:
 - Commit the template (Ctrl+K in IntelliJ), adding all files, with the message `modfest template`
 - Copy any preferred license content into `LICENSE` (e.g. [EUPL-1.2](https://choosealicense.com/licenses/eupl-1.2))
 - Open `gradle.properties` and replace the following:
-  - `username`(x2) with your github username (as it appears in your repo URL)
+  - `group` to `io.github.{username}` (as below) or if you own a domain e.g. `hostname.tld`, you can use `tld.hostname`
+  - `username` to your github username (as it appears in your repo URL)
   - `slug` to your mod slug (as it appears in github and modrinth URLs)
   - `modId` to your mod ID (in snake case, e.g. `name_of_your_mod` - not too long!)
   - `modDescription` to your short mod summary
   - `authors` to your handle/name, along with any other authors (comma-space-separated - `me, you, another`)
   - `contributors` to anyone who helped you (comma-space-separated - `me, you, another`), or just blank (`contributors=`)
-- Rename the following using your IDE rename tools (Shift+F6 in IntelliJ):
-  - `src/main/java/io/github/username/modid/ModId.java` from `ModId` to your mod ID (in PascalCase)
-  - replace **mod_id** with your mod ID (in snake_case) in:
-    - `src/main/resources/mod_id.mixins.json`
-    - `src/main/resources/assets/mod_id`
-  - replace `username` and `modid` with your github username and mod ID (in flatcase) in:
-    - `src/main/java/io/github/username/modid`
-    - alternatively, if you own a domain e.g. `hostname.tld` you can use `src/main/java/tld/hostname/modid`
-- In (renamed) `mod_id.mixins.json`, correct `username.mod_id` to match the new file path
-- In `fabric.mod.json`, correct `username.mod_id.ModId` to match the new file path/name
-- In (renamed) `ModId.java`, correct `"mod_id"` and `[Mod ID]` to your ID and mod name.
-  - Optionally, uncomment the logger line and change the hello message to something unique
-- Run `./gradlew runClient` to validate the mod still launches
+  - `license` to your license identifier (e.g. `MIT` or `EUPL-1.2`)
+- Expand `src/main/java/io/github/username/modid/` in the left pane
+  - Double click `🇨 ModId` and edit `"mod_id"` and `[Mod ID]` to your ID and mod name respectively.
+    - Optionally, uncomment the logger line and change it to have a unique message
+  - Right click `🇨 ModId` and select `Rename...`, then enter your Mod ID in PascalCase and click `Refactor`
+  - Directly above, right click `📁 modid` and select `Rename...`, then enter `{group}.{modid}` (ID in flatcase)
+- Expand `src/main/resources/assets` in the left pane
+  - Right click `mod_id.mixins.json` and select `Rename...`, replacing `mod_id` with your mod ID (in snake_case)
+  - Below `assets`, right click `mod_id` and select `Rename...`, entering your mod ID (in snake_case)
+- Run `./gradlew runClient` to validate the mod launches
 - Commit and push these changes (Ctrl+K in IntelliJ) with the message `initial commit` - check "amend" if you prefer one initial commit.
 
 ### Develop your mod
