@@ -56,6 +56,7 @@ In your IDE:
   - Right click `🇨 ModId` and select `Rename...`, then enter your Mod ID in PascalCase and click `Refactor`
   - Directly above, right click `📁 modid` and select `Rename...`, then enter `{group}.{modid}` (ID in flatcase)
 - Expand `src/main/resources/assets` in the left pane
+  - Open `mod_id.mixins.json` and edit `io.github.username.mixin` to `{group}.{modid}.mixin`
   - Right click `mod_id.mixins.json` and select `Rename...`, replacing `mod_id` with your mod ID (in snake_case)
   - Below `assets`, right click `mod_id` and select `Rename...`, entering your mod ID (in snake_case)
 - Run `./gradlew runClient` to validate the mod launches
