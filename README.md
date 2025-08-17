@@ -55,24 +55,23 @@ In your IDE:
     - Optionally, uncomment the logger line and change it to have a unique message
   - Right click `🇨 ModId` and select `Rename...`, then enter your Mod ID in PascalCase and click `Refactor`
   - Directly above, right click `📁 modid` and select `Rename...`, then enter `{group}.{modid}` (ID in flatcase)
-- Expand `src/main/resources/assets` in the left pane
+- Expand `src/main/resources/assets/mod_id` in the left pane
   - Open `mod_id.mixins.json` and edit `io.github.username.mixin` to `{group}.{modid}.mixin`
   - Right click `mod_id.mixins.json` and select `Rename...`, replacing `mod_id` with your mod ID (in snake_case)
+  - Crack open `icon.png` in an image editor and scribble something vaguely resembling your mod
   - Below `assets`, right click `mod_id` and select `Rename...`, entering your mod ID (in snake_case)
 - Run `./gradlew runClient` to validate the mod launches
 - Commit and push these changes (Ctrl+K in IntelliJ) with the message `initial commit` - check "amend" if you prefer one initial commit.
 
 ### Develop your mod
 
-*draw the rest of the owl*
+Check out the [fabric modding wiki](https://docs.fabricmc.net/develop/getting-started/introduction-to-fabric-and-modding) for the basics on your version!
 
-Why not try [Introduction to Fabric and Modding](https://docs.fabricmc.net/develop/getting-started/introduction-to-fabric-and-modding)? Note that, for this template:
-- Changing the mod description must be done using `README.md`, NOT the modrinth description (it will be overwritten)
+Note that, for this template:
+- Changing the mod description via `README.md`, not modrinth!
 - Metadata usually in `fabric.mod.json` has been migrated to `gradle.properties` for easy editing
 - Dependency versions usually in `build.gradle` are in `libs.versions.toml` for programmatic use 
-  - You can define further any dependencies in `build.gradle` for simplicity if desired 
-- You should replace `sec/main/resources/assets/****/icon.png` with your own icon (MS Paint is fine!)
-- After changing a part of the mod, use `./gradlew runClient` to test it, then push a commit describing your changes!
+- Whenever you add a new feature, always use `./gradlew runClient` to test it, then push a commit describing your changes!
 
 ### Enable Modrinth publishing
 
