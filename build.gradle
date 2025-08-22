@@ -10,6 +10,19 @@ version = "$modVersion+$branchName"
 base.archivesName = project.slug
 
 repositories {
+	// Modrinth Maven - see: https://support.modrinth.com/en/articles/8801191-modrinth-maven
+	// To use in a dependency, use: maven.modrinth:mod-id
+	exclusiveContent {
+		forRepository {
+			maven {
+				name = "Modrinth"
+				url = "https://api.modrinth.com/maven"
+			}
+		}
+		filter {
+			includeGroup("maven.modrinth")
+		}
+	}
 }
 
 dependencies {
