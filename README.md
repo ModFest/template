@@ -105,3 +105,12 @@ After a few minutes:
 - A matching release will be created on the modrinth page.
  
 You can review this process on the repo page under `▶️ Actions`.
+
+## Notes
+
+### .gitignore
+
+We included a thorough `.gitignore` for you, which blocks you from accidentally publishing files you didn't intend to.
+
+If one of the rules gets in the way, you can use `!` to add rules of what to allow.
+One such example would be `!src/main/resources/template.log` to allow bundling template.log in your mod.
