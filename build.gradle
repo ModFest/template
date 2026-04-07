@@ -75,13 +75,13 @@ publishing {
 }
 
 modrinth {
-	token = "$System.env.MODRINTH_TOKEN"
+	token.set(providers.environmentVariable("MODRINTH_TOKEN"))
 	projectId = slug
 	versionNumber = project.version.toString()
 	uploadFile = jar
 	gameVersions = compatibleVersions.split(", ").toList()
 	loaders = compatibleLoaders.split(", ").toList()
-	changelog = "$System.env.CHANGELOG"
+	changelog.set(providers.environmentVariable("CHANGELOG"))
 	syncBodyFrom = "<!--DO NOT EDIT MANUALLY: synced from gh readme-->\n" + rootProject.file("README.md").text
 	dependencies {
 		required.version "fabric-api", libs.versions.fapi.get()
