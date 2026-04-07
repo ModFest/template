@@ -58,13 +58,11 @@ tasks.processResources {
 
 tasks.withType<JavaCompile> {
 	options.encoding = "UTF-8"
-	options.release = 25
 }
 
 java {
 	withSourcesJar()
-	sourceCompatibility = JavaVersion.VERSION_25
-	targetCompatibility = JavaVersion.VERSION_25
+	toolchain.languageVersion = JavaLanguageVersion.of(25)
 }
 
 publishing {
