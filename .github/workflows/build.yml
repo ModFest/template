@@ -43,15 +43,13 @@ jobs:
       - name: Attest Build Provenance
         uses: actions/attest-build-provenance@v2
         with:
-          subject-path: 'build/libs/*.jar, !build/libs/*-sources.jar'
+          subject-path: 'build/libs/*.jar'
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v4
         with:
           name: Artifacts
-          path: |
-            build/libs/*.jar
-            !build/libs/*-sources.jar
+          path: build/libs/*.jar
 
       - name: Maven Publish
         if: github.event_name == 'release' && github.event.action == 'published'
@@ -61,7 +59,7 @@ jobs:
         if: github.event_name == 'release' && github.event.action == 'published'
         uses: AButler/upload-release-assets@v2.0
         with:
-          files: 'build/libs/*.jar;!build/libs/*-sources.jar'
+          files: 'build/libs/*.jar'
           repo-token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Modrinth Publish
@@ -69,6 +67,4 @@ jobs:
           MODRINTH_TOKEN: ${{ secrets.MODRINTH_TOKEN }}
           CHANGELOG: ${{ github.event.release.body }}
         if: ${{ github.event_name == 'release' && github.event.action == 'published' && env.MODRINTH_TOKEN != '' }}
-        run: |
-          ./gradlew --no-configuration-cache modrinth
-          ./gradlew --no-configuration-cache modrinthSyncBody
+        run: ./gradlew publishMods
