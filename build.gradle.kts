@@ -22,9 +22,7 @@ repositories {
 
 dependencies {
 	minecraft(libs.minecraft)
-
-	implementation(libs.fabric.loader)
-	implementation(libs.fabric.api)
+	implementation(libs.bundles.fabric)
 }
 
 tasks.processResources {
