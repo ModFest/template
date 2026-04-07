@@ -32,13 +32,13 @@ side = "BOTH"
 [[dependencies."${ modId }"]]
 modId = "minecraft"
 type = "required"
-versionRange = "[${mc},)"
+versionRange = "[${minecraftVersion},)"
 ordering = "NONE"
 side = "BOTH"
 
 [[dependencies."${ modId }"]]
 modId = "fabric_api"
 type = "required"
-versionRange = "[${fapi},)"
+versionRange = "[${fabricApiVersion},)"
 ordering = "NONE"
 side = "BOTH"
