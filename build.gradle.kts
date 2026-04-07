@@ -59,6 +59,7 @@ publishing {
 
 publishMods {
 	file = tasks.jar.flatMap { it.archiveFile }
+	additionalFiles.from(tasks.named("sourcesJar"))
 	changelog = providers.environmentVariable("CHANGELOG")
 
 	type = version.map { when {
