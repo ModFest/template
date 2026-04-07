@@ -1,6 +1,6 @@
 plugins {
 	alias(libs.plugins.loom)
-	alias(libs.plugins.minotaur)
+	alias(libs.plugins.mod.publish)
 	`maven-publish`
 }
 
@@ -13,6 +13,11 @@ version = "$modVersion+$branchName"
 dependencies {
 	minecraft(libs.minecraft)
 	api(libs.bundles.fabric)
+}
+
+java {
+	withSourcesJar()
+	toolchain.languageVersion = JavaLanguageVersion.of(25)
 }
 
 tasks.processResources {
@@ -44,11 +49,6 @@ tasks.processResources {
 	}
 }
 
-java {
-	withSourcesJar()
-	toolchain.languageVersion = JavaLanguageVersion.of(25)
-}
-
 publishing {
 	publications {
 		register<MavenPublication>("mavenJava") {
@@ -57,25 +57,34 @@ publishing {
 	}
 }
 
-modrinth {
+publishMods {
+	file = tasks.jar.flatMap { it.archiveFile }
+	changelog = providers.environmentVariable("CHANGELOG")
+
+	type = version.map { when {
+		it.contains("alpha") -> ALPHA
+		it.contains("beta") -> BETA
+		else -> STABLE
+	}}
+
 	val compatibleVersions: String by project
 	val compatibleLoaders: String by project
 	val readme: RegularFile = rootProject.layout.projectDirectory.file("README.md")
 
-	projectId = slug
-	token = providers.environmentVariable("MODRINTH_TOKEN")
+	modrinth {
+		projectId = slug
+		accessToken = providers.environmentVariable("MODRINTH_TOKEN")
 
-	versionNumber = project.version.toString()
-	uploadFile.set(tasks.jar)
-	gameVersions = compatibleVersions.split(", ")
-	loaders = compatibleLoaders.split(", ")
-	changelog = providers.environmentVariable("CHANGELOG")
+		minecraftVersions.addAll(compatibleVersions.split(", "))
+		modLoaders.addAll(compatibleLoaders.split(", "))
 
-	syncBodyFrom = providers.fileContents(readme).asText.map {
-		"<!--DO NOT EDIT MANUALLY: synced from gh readme-->\n$it"
-	}
+		projectDescription = providers.fileContents(readme).asText.map {
+			"<!--DO NOT EDIT MANUALLY: synced from gh readme-->\n$it"
+		}
 
-	dependencies {
-		required.version("fabric-api", libs.versions.fabric.api.get())
+		requires {
+			slug = "fabric-api"
+			version = libs.versions.fabric.api
+		}
 	}
 }
