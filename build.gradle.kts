@@ -12,7 +12,7 @@ version = "$modVersion+$branchName"
 
 dependencies {
 	minecraft(libs.minecraft)
-	implementation(libs.bundles.fabric)
+	api(libs.bundles.fabric)
 }
 
 tasks.processResources {
