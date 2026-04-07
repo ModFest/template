@@ -7,6 +7,7 @@ plugins {
 val modVersion: String by project
 val branchName: String by project
 val slug: String by project
+val compatibleVersions: String by project
 
 version = "$modVersion+$branchName"
 
@@ -37,7 +38,7 @@ tasks.processResources {
 		"authors" to authors.split(", ").joinToString("\",\n    \""),
 		"contributors" to contributors.split(", ").joinToString("\",\n    \""),
 		"members" to "$authors${if (contributors.isEmpty()) "" else ". Contributions by $contributors."}",
-		"minecraftVersion" to providers.gradleProperty("compatibleVersions").map { it.split(", ")[0] },
+		"minecraftVersion" to compatibleVersions.split(", ")[0],
 		"fabricLoaderVersion" to libs.versions.fabric.loader,
 		"fabricApiVersion" to libs.versions.fabric.api
 	)
@@ -72,7 +73,6 @@ publishMods {
 		else -> STABLE
 	}}
 
-	val compatibleVersions: String by project
 	val compatibleLoaders: String by project
 	val readme: RegularFile = rootProject.layout.projectDirectory.file("README.md")
 
