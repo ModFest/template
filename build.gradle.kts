@@ -21,10 +21,10 @@ repositories {
 }
 
 dependencies {
-	minecraft(libs.mc)
+	minecraft(libs.minecraft)
 
-	implementation(libs.fl)
-	implementation(libs.fapi)
+	implementation(libs.fabric.loader)
+	implementation(libs.fabric.api)
 }
 
 tasks.processResources {
@@ -45,8 +45,8 @@ tasks.processResources {
 		"contributors" to contributors.split(", ").joinToString("\",\n    \""),
 		"members" to "$authors${if (contributors.isEmpty()) "" else ". Contributions by $contributors."}",
 		"mc" to providers.gradleProperty("compatibleVersions").map { it.split(", ")[0] },
-		"fl" to libs.versions.fl,
-		"fapi" to libs.versions.fapi
+		"fl" to libs.versions.fabric.loader,
+		"fapi" to libs.versions.fabric.api
 	)
 
 	inputs.properties(meta)
@@ -88,6 +88,6 @@ modrinth {
 	}
 
 	dependencies {
-		required.version("fabric-api", libs.versions.fapi.get())
+		required.version("fabric-api", libs.versions.fabric.api.get())
 	}
 }
