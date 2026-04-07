@@ -45,7 +45,11 @@ tasks.processResources {
 	inputs.properties(meta)
 
 	filesMatching(listOf("*.mod.json", "META-INF/*mods.toml")) {
-		expand(meta)
+		// providers must be invoked manually or else you get stuff like "provider(?)" instead of "mod-id"
+		expand(meta.mapValues { when (val value = it.value) {
+			is Provider<*> -> value.get()
+			else -> value
+		}})
 	}
 }
 
