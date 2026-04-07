@@ -9,7 +9,6 @@ val branchName: String by project
 val slug: String by project
 
 version = "$modVersion+$branchName"
-base.archivesName = slug
 
 repositories {
 	// Modrinth Maven - see: https://support.modrinth.com/en/articles/8801191-modrinth-maven
