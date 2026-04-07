@@ -56,10 +56,6 @@ tasks.processResources {
 	}
 }
 
-tasks.withType<JavaCompile> {
-	options.encoding = "UTF-8"
-}
-
 java {
 	withSourcesJar()
 	toolchain.languageVersion = JavaLanguageVersion.of(25)
