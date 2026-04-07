@@ -37,9 +37,9 @@ tasks.processResources {
 		"authors" to authors.split(", ").joinToString("\",\n    \""),
 		"contributors" to contributors.split(", ").joinToString("\",\n    \""),
 		"members" to "$authors${if (contributors.isEmpty()) "" else ". Contributions by $contributors."}",
-		"mc" to providers.gradleProperty("compatibleVersions").map { it.split(", ")[0] },
-		"fl" to libs.versions.fabric.loader,
-		"fapi" to libs.versions.fabric.api
+		"minecraftVersion" to providers.gradleProperty("compatibleVersions").map { it.split(", ")[0] },
+		"fabricLoaderVersion" to libs.versions.fabric.loader,
+		"fabricApiVersion" to libs.versions.fabric.api
 	)
 
 	inputs.properties(meta)
