@@ -10,16 +10,6 @@ val slug: String by project
 
 version = "$modVersion+$branchName"
 
-repositories {
-	// Modrinth Maven - see: https://support.modrinth.com/en/articles/8801191-modrinth-maven
-	// To use in a dependency, use: maven.modrinth:mod-id
-	exclusiveContent {
-		forRepositories(maven("https://api.modrinth.com/maven")).filter {
-			includeGroup("maven.modrinth")
-		}
-	}
-}
-
 dependencies {
 	minecraft(libs.minecraft)
 	implementation(libs.bundles.fabric)
