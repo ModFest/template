@@ -38,6 +38,7 @@ replay_*.log
 # Please use maven. Modrinth hosts one if you're depending on other mods.
 # https://support.modrinth.com/en/articles/8801191-modrinth-maven
 *.jar
+!gradle/wrapper/gradle-wrapper.jar
 
 # scala results
 *.tasty
