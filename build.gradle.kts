@@ -73,11 +73,12 @@ publishMods {
 		else -> STABLE
 	}}
 
+	val modrinthId: String by project
 	val compatibleLoaders: String by project
 	val readme: RegularFile = rootProject.layout.projectDirectory.file("README.md")
 
 	modrinth {
-		projectId = slug
+		projectId = modrinthId
 		accessToken = providers.environmentVariable("MODRINTH_TOKEN")
 
 		minecraftVersions.addAll(compatibleVersions.split(", "))
