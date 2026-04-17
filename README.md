@@ -43,8 +43,9 @@ In your IDE:
 - Copy any preferred license content into `LICENSE` (e.g. [EUPL-1.2](https://choosealicense.com/licenses/eupl-1.2))
 - Open `gradle.properties` and replace the following:
   - `group` to `io.github.{username}` (as below) or if you own a domain e.g. `hostname.tld`, you can use `tld.hostname`
-  - `username` to your github username (as it appears in your repo URL)
+  - `user` to your github username (as it appears in your repo URL)
   - `slug` to your mod slug (as it appears in github and modrinth URLs)
+  - `modrinthId` to your Modrinth project ID (you can copy this from the "more options" button (3 dots) on the project page)
   - `modId` to your mod ID (in snake case, e.g. `name_of_your_mod` - not too long!)
   - `modDescription` to your short mod summary
   - `authors` to your handle/name, along with any other authors (comma-space-separated - `me, you, another`)
