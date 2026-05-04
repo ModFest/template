@@ -11,6 +11,16 @@ val compatibleVersions: String by project
 
 version = "$modVersion+$branchName"
 
+repositories {
+	exclusiveContent {
+		// Modrinth Maven - see: https://support.modrinth.com/en/articles/8801191-modrinth-maven
+		// Mods may be pulled from here will this format: "maven.modrinth:<slug>:<version>"
+		forRepositories(maven("https://api.modrinth.com/maven")).filter {
+			includeGroup("maven.modrinth")
+		}
+	}
+}
+
 dependencies {
 	minecraft(libs.minecraft)
 	api(libs.bundles.fabric)
